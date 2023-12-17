@@ -1,0 +1,7 @@
+  
+  
+  <ion-card *ngFor="let usu of usuarios">
+  {{usu.nombre}} {{usu.apellido}} <br> <br> {{usu.correo}} <br>
+  <ion-button *ngIf="usu.role!=='admin'" (click)="eliminar(usu.correo)"  expand="block" fill="clear" shape="round">Eliminar
+  </ion-button>
+  </ion-card>

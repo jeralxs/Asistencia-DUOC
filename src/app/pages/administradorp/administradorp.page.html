@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <img src="/assets/img/logo-duoc1.png" alt="image" width="200px" class="ion-padding-horizontal">
+    <ion-title #titulo>
+      Sistema de asistencia DUOC
+    </ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="componente_actual" (ngModelChange)="cambiarComponente($event)">
+      <ion-segment-button value="foro">
+        <ion-label>Foro</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="misdatos">
+        <ion-label>Mis datos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="administradorc">
+        <ion-label>Admin</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-foro [hidden]="componente_actual !== 'foro'"></app-foro>
+  <app-misdatos [hidden]="componente_actual !== 'misdatos'"></app-misdatos>
+  <app-administradorc [hidden]="componente_actual !== 'administradorc'"></app-administradorc>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="cerrarSesion()" expand="block" fill="clear" shape="round">
+      Cerrar sesión
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
